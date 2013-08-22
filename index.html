@@ -1,0 +1,17 @@
+<html>
+
+<head>
+	<title>Mandelbrot Set</title>
+	<script type="text/javascript" src="mandelbrot.js"></script>
+	<script type="text/javascript">
+	
+	function onLoad(){
+		new Mandelbrot("mandelbrotCanvas", 5, 0, 0, 4, 0, false);
+	}
+		
+	</script>
+</head>
+<body onload="onLoad();">
+<canvas id="mandelbrotCanvas" style="width:600px; height:600px;" width="600px" height="600px"></canvas>
+</body>
+</html>
