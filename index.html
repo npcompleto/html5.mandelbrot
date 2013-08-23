@@ -7,11 +7,21 @@
     <meta name="description" content="Html5.mandelbrot : Mandelbrot Set designed inside an interactive html5 canvas tag" />
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
+	
+	<script src="https://raw.github.com/npcompleto/html5.mandelbrot/master/mandelbrot.js"></script>
+	
+	<script type="text/javascript">
+	
+	function onLoad(){
+		new Mandelbrot("mandelbrotCanvas", 50, 0, 0, 2, 0, false);
+	}
+		
+	</script>
+	
     <title>Html5.mandelbrot</title>
   </head>
 
-  <body>
+  <body onload="onLoad();">
 
     <!-- HEADER -->
     <div id="header_wrap" class="outer">
@@ -32,9 +42,12 @@
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
         <h1>
-<a name="html5mandelbrot" class="anchor" href="#html5mandelbrot"><span class="octicon octicon-link"></span></a>html5.mandelbrot</h1>
+			<a name="html5mandelbrot" class="anchor" href="#html5mandelbrot"><span class="octicon octicon-link"></span></a>html5.mandelbrot</h1>
 
-<p>Mandelbrot Set designed inside an interactive html5 canvas tag</p>
+			<p>Mandelbrot Set designed inside an interactive html5 canvas tag</p>
+			
+			<canvas id="mandelbrotCanvas" style="width:600px; height:600px;" width="600px" height="600px"></canvas>
+			
       </section>
     </div>
 
