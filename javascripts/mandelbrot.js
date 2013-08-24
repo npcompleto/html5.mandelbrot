@@ -1,4 +1,4 @@
-function Mandelbrot(canvasId, maxIteractions, transX, transY, zoomLevel, timing, animate) {
+function Mandelbrot(canvasId, maxIteractions, transX, transY, zoomLevel, timing, animate, drawGrid) {
 	
 	this.canvas = document.getElementById(canvasId);
 	
@@ -7,9 +7,8 @@ function Mandelbrot(canvasId, maxIteractions, transX, transY, zoomLevel, timing,
 	this.transX = transX;
 	this.transY = transY;
 	this.timing = timing;
-	//var mi = 50 / this.zoomFactor;
+	this.drawGrid = drawGrid;
 	
-	//console.log("Max iteractions:" + mi);
 	this.maxIteractions = maxIteractions;
 	this.animate = animate;
 	this.isReady = true;
@@ -240,7 +239,7 @@ Mandelbrot.prototype.noAnimateGenerate = function(){
 			}
 		
 		//Draw axis
-		/*for ( var py = 0; py < h; py++)
+		for ( var py = 0; py < h && this.drawGrid; py++)
 			for ( var px = 0; px < w; px++) {
 				var x = (((px - w2) / w) * this.zoomFactor) + this.transX;
 				var y = (((py - h2) / h) * this.zoomFactor) + this.transY;
@@ -255,7 +254,7 @@ Mandelbrot.prototype.noAnimateGenerate = function(){
 				if(x == 1 || y == 1 || x == -1 || y == -1){
 					this.setPixel(this.imageData, this.canvas, px, py, {r:255, g:0, b:255, a:255});
 				}
-			}*/
+			}
 		
 		this.context.putImageData(this.imageData, 0, 0);
 	//}
@@ -281,7 +280,7 @@ Mandelbrot.prototype.generate = function(iteractions) {
 	var w2 = Math.floor(w / 2);
 	var h2 = Math.floor(h / 2);
 
-	for ( var py = 0; py < h; py++)
+	for ( var py = 0; py < h && this.drawGrid; py++)
 		for ( var px = 0; px < w; px++) {
 			var x0 = (((px - w2) / w) * this.zoomFactor) + this.transX;
 			var y0 = (((py - h2) / h) * this.zoomFactor) + this.transY;
