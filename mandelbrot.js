@@ -51,6 +51,8 @@ function Mandelbrot(canvasId, maxIteractions, transX, transY, zoomLevel, timing,
 	var that = this;
 	
 	this.zoomHandler = function(e){
+		e.stopPropagation();
+		e.preventDefault();
 		if(!that.isReady) return;
 		
 		if(e.wheelDelta > 0){
