@@ -110,9 +110,9 @@ function Mandelbrot(canvasId, maxIteractions, transX, transY, zoomLevel, timing,
 	
 	this.clickHandler = function(e){	
 		if(!that.isReady) return;
-		var px = e.layerX;
-		var py = e.layerY;
-		console.log("px:"+e.layerX+" py:"+e.layerY);
+		var px = e.offsetX;
+		var py = e.offsetY;
+		console.log("px:"+px+" py:"+py);
 		var coords = that.pixelToCoords(px, py);
 		console.log("x:"+coords[0]+" y:"+coords[1]);
 		
