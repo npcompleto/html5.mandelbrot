@@ -7,6 +7,22 @@
     <meta name="description" content="Html5.mandelbrot : Mandelbrot Set designed inside an interactive html5 canvas tag" />
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    
+    <style>
+    	#instructions{
+    		border: 0px;
+    	}
+    	
+    	#instructions td{
+			vertical-align: middle;
+    		border: 0px;
+    	}
+    
+		#instructions tr td:first-child{
+    		width: 160px;
+    		text-align: center;
+    	}
+    </style>
 	
 	<script type="text/javascript" src="javascripts/mandelbrot.js"></script>
 	
@@ -41,6 +57,22 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
+
+      	<table id="instructions">
+      		<tr>
+      			<td><img alt='Left Click' src='images/mouse_left_click.png' style='width:40px;'/></td><td>Click to center.</td>
+      		</tr>
+      		<tr>
+      			<td><img alt='Key +' src='images/press_plus.png' /></td><td>Press '+' key to increase the number of iterations (means more precision).</td>
+      		</tr>
+      		<tr>
+      			<td><img alt='Key -' src='images/press_minus.png' /></td><td>Press '-' key to decrease the number of iterations (means less precision).</td>
+      		</tr>
+      		<tr>
+      			<td><img alt='Key S' src='images/press_S.png' /></td><td>Press 's' key to generate a <b>png</b> image from canvas.</td>
+      		</tr>
+      	</table>
+      
 			<canvas id="mandelbrotCanvas" style="width:600px; height:600px;" width="600px" height="600px"></canvas>
       </section>
     </div>
