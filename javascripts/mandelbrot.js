@@ -54,7 +54,7 @@ function Mandelbrot(canvasId, maxIteractions, transX, transY, zoomLevel, timing,
 		e.preventDefault();
 		if(!that.isReady) return;
 		
-		if(e.wheelDelta > 0){
+		if(e.wheelDelta > 0 || e.detail < 0){
 			that.zoomLevel--;
 			console.log("zoom out");
 		}
@@ -108,10 +108,13 @@ function Mandelbrot(canvasId, maxIteractions, transX, transY, zoomLevel, timing,
 		
 	}
 	
-	this.clickHandler = function(e){	
+	this.clickHandler = function(e){
+
 		if(!that.isReady) return;
-		var px = e.offsetX;
-		var py = e.offsetY;
+		var px = e.layerX - that.canvas.offsetLeft;
+		var py = e.layerY - that.canvas.offsetTop;
+		
+		
 		console.log("px:"+px+" py:"+py);
 		var coords = that.pixelToCoords(px, py);
 		console.log("x:"+coords[0]+" y:"+coords[1]);
