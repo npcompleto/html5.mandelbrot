@@ -111,9 +111,11 @@ function Mandelbrot(canvasId, maxIteractions, transX, transY, zoomLevel, timing,
 	this.clickHandler = function(e){
 
 		if(!that.isReady) return;
-		var px = e.layerX - that.canvas.offsetLeft;
-		var py = e.layerY - that.canvas.offsetTop;
+		var px = e.offsetX || e.layerX - that.canvas.offsetLeft;
+		var py = e.offsetY || e.layerY - that.canvas.offsetTop;
 		
+//		var px = e.offsetX;
+//		var py = e.offsetY;
 		
 		console.log("px:"+px+" py:"+py);
 		var coords = that.pixelToCoords(px, py);
@@ -133,7 +135,7 @@ function Mandelbrot(canvasId, maxIteractions, transX, transY, zoomLevel, timing,
 	
 	window.onkeypress = function(e){
 		if(that.isReady){
-			switch(e.keyCode){
+			switch(e.charCode){
 			case 43:{/*+*/
 				that.maxIteractions = that.maxIteractions + 200;
 				if(that.animate){
